@@ -16,21 +16,6 @@ Creating a page where every time the user hits the "Roll Dice" button, the scree
 3) When the button is clicked, run your roll the dice function.
 
 */
-
-
-
-document.getElementById('rock').onclick = () => {
-  let computerPlay = Math.floor(Math.random() * 3) + 1;
-    if (computerPlay === 1) {
-      computerPlay = 'rock';
-    } else if (computerPlay === 2) {
-      computerPlay =  'paper';
-    } else {computerPlay = 'scissor';
-    }
-
-
-  let playerChoice = 'rock';
-
   let game = (playerOne, computer) => {
     if(playerOne === computer) {
       return 'Tie. Play again';
@@ -60,99 +45,31 @@ document.getElementById('rock').onclick = () => {
     }
   }
 
-document.write(game('paper', computerPlay));;
-
-
+function getComputerPlay(){
+  let computerPlay = Math.floor(Math.random() * 3) + 1;
+    if (computerPlay === 1) {
+      computerPlay = 'rock';
+    } else if (computerPlay === 2) {
+      computerPlay =  'paper';
+    } else {computerPlay = 'scissor';
+    }
+  return computerPlay;
 }
 
 
 
+document.getElementById('rock').onclick = () => {
+  let computer = getComputerPlay();
+  console.log("The computer played " + computer + ". " + game('rock', computer));
+}
 
 
 document.getElementById('paper').onclick = () => {
-  let computerPlay = Math.floor(Math.random() * 3) + 1;
-    if (computerPlay === 1) {
-      computerPlay = 'rock';
-    } else if (computerPlay === 2) {
-      computerPlay =  'paper';
-    } else {computerPlay = 'scissor';
-    }
-
-
-  let playerChoice = 'rock';
-
-  let game = (playerOne, computer) => {
-    if(playerOne === computer) {
-      return 'Tie. Play again';
-    }
-    if(playerOne === 'rock'){
-      if(computer === 'scissor'){
-        return 'Rock beats scissors. Player one wins';
-      }
-      else{
-        return 'Paper beats rock. The computer wins';
-      }
-    }
-    if(playerOne === 'scissor'){
-      if(computer === 'rock'){
-        return 'Rock beats scissor. The computer wins';
-      }
-      else{
-        return 'Scissor beats paper. Player one wins';
-      }
-    }
-    if(playerOne === 'paper'){
-      if (computer === 'rock'){
-        return 'Paper beats rock. Player one wins'
-      } else {
-        return 'Scissor beats paper. The computer wins'
-      }
-    }
-  }
-  document.write(game('paper', computerPlay));
-
+  let computer = getComputerPlay();
+  console.log("The computer played " + computer + ". " + game('paper', computer));
 }
 
 document.getElementById('scissor').onclick = () => {
-  let computerPlay = Math.floor(Math.random() * 3) + 1;
-    if (computerPlay === 1) {
-      computerPlay = 'rock';
-    } else if (computerPlay === 2) {
-      computerPlay =  'paper';
-    } else {computerPlay = 'scissor';
-    }
-
-
-  let playerChoice = 'rock';
-
-  let game = (playerOne, computer) => {
-    if(playerOne === computer) {
-      return 'Tie. Play again';
-    }
-    if(playerOne === 'rock'){
-      if(computer === 'scissor'){
-        return 'Rock beats scissors. Player one wins';
-      }
-      else{
-        return 'Paper beats rock. The computer wins';
-      }
-    }
-    if(playerOne === 'scissor'){
-      if(computer === 'rock'){
-        return 'Rock beats scissor. The computer wins';
-      }
-      else{
-        return 'Scissor beats paper. Player one wins';
-      }
-    }
-    if(playerOne === 'paper'){
-      if (computer === 'rock'){
-        return 'Paper beats rock. Player one wins'
-      } else {
-        return 'Scissor beats paper. The computer wins'
-      }
-    }
-  }
-  document.write(game('scissor', computerPlay));
-
+  let computer = getComputerPlay();
+  console.log("The computer played " + computer + ". " + game('scissor', computer));
 }
